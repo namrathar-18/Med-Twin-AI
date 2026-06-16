@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MediTwin AI — Multi-Agent Clinical Intelligence Platform for early disease detection and hospital operations. A digital clinical twin for every patient." />
+  <meta name="theme-color" content="#0a0e1a" />
+  <title>MediTwin AI — Multi-Agent Clinical Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <!-- Animated background -->
+  <div class="bg-aurora" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="MediTwin AI home">
+        <span class="brand-mark">
+          <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+            <path d="M16 3 L28 9 V18 C28 24 22 28 16 30 C10 28 4 24 4 18 V9 Z" fill="url(#g1)" opacity="0.18"/>
+            <path d="M16 3 L28 9 V18 C28 24 22 28 16 30 C10 28 4 24 4 18 V9 Z" fill="none" stroke="url(#g1)" stroke-width="1.4"/>
+            <path d="M9 17 H13 L15 11 L18 22 L20 17 H23" fill="none" stroke="#5eead4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="32" y2="32">
+                <stop offset="0" stop-color="#38bdf8"/>
+                <stop offset="1" stop-color="#a78bfa"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="brand-text">MediTwin<span class="brand-ai">AI</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#problem">Problem</a>
+        <a href="#agents">Agents</a>
+        <a href="#platform">Platform</a>
+        <a href="#journey">Journey</a>
+        <a href="#stack">Tech</a>
+        <a href="#recruiters">Why Us</a>
+        <a href="#pitch">Pitch</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="#demo" class="btn btn-ghost">Live Demo</a>
+        <a href="#contact" class="btn btn-primary">Request Access</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <div class="pill">
+            <span class="dot"></span>
+            Healthcare · AI Diagnostics · Digital Health
+          </div>
+          <h1 class="hero-title">
+            The Operating System for
+            <span class="gradient-text"> Clinical Intelligence</span>
+          </h1>
+          <p class="hero-sub">
+            MediTwin builds a <strong>digital clinical twin</strong> for every patient and deploys a team of
+            specialized AI agents that collaborate like a multidisciplinary medical board — predicting risk,
+            reading scans, interpreting reports, and preventing errors. Explainable. Compliant. Real-time.
+          </p>
+          <div class="hero-actions">
+            <a href="#demo" class="btn btn-primary btn-lg">See the Agents Debate
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#mvp" class="btn btn-outline btn-lg">Explore the MVP</a>
+          </div>
+          <div class="hero-trust">
+            <div class="trust-item"><strong>HL7 / FHIR</strong><span>Native integration</span></div>
+            <div class="trust-item"><strong>Explainable</strong><span>SHAP + reasoning</span></div>
+            <div class="trust-item"><strong>6 Agents</strong><span>One coordinated team</span></div>
+          </div>
+        </div>
+
+        <!-- Hero visual: clinical twin card -->
+        <div class="hero-visual reveal">
+          <div class="twin-card">
+            <div class="twin-head">
+              <div class="twin-avatar">PT</div>
+              <div>
+                <div class="twin-name">Patient Digital Twin</div>
+                <div class="twin-meta">ICU · Bed 14 · Live monitoring</div>
+              </div>
+              <span class="twin-status">LIVE</span>
+            </div>
+            <div class="twin-vitals">
+              <div class="vital"><span>HR</span><b id="hr">88</b><i>bpm</i></div>
+              <div class="vital"><span>SpO₂</span><b id="spo2">96</b><i>%</i></div>
+              <div class="vital"><span>Temp</span><b id="temp">38.1</b><i>°C</i></div>
+              <div class="vital risk"><span>Sepsis Risk</span><b id="sepsis">High</b><i>8h</i></div>
+            </div>
+            <div class="twin-wave">
+              <svg viewBox="0 0 320 60" preserveAspectRatio="none" aria-hidden="true">
+                <polyline id="ecg" fill="none" stroke="#5eead4" stroke-width="2"
+                  points="0,30 30,30 40,30 48,8 56,52 64,30 110,30 150,30 158,12 166,48 174,30 230,30 270,30 278,10 286,50 294,30 320,30"/>
+              </svg>
+            </div>
+            <div class="twin-alert">
+              <span class="alert-ico">⚠</span>
+              <div><b>Early Warning</b><p>High sepsis probability within 8 hours — escalate now.</p></div>
+            </div>
+          </div>
+          <div class="float-badge fb-1">87% confidence</div>
+          <div class="float-badge fb-2">Echocardiogram recommended</div>
+        </div>
+      </div>
+
+      <!-- Metric strip -->
+      <div class="container">
+        <div class="metric-strip reveal">
+          <div class="metric"><b data-count="5">0</b><span>Billion+ medical records / year</span></div>
+          <div class="metric"><b data-count="40" data-suffix="%">0</b><span>Of physician time on documentation</span></div>
+          <div class="metric"><b data-count="6">0</b><span>Specialist agents per case</span></div>
+          <div class="metric"><b data-count="24" data-suffix="h">0</b><span>Earlier deterioration alerts</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES MARQUEE -->
+    <section class="industries">
+      <div class="container">
+        <p class="ind-label">Built for every corner of the health economy</p>
+      </div>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Healthcare</span><span class="sep">•</span>
+          <span>AI</span><span class="sep">•</span>
+          <span>Insurance</span><span class="sep">•</span>
+          <span>MedTech</span><span class="sep">•</span>
+          <span>Hospital Management</span><span class="sep">•</span>
+          <span>Public Health</span><span class="sep">•</span>
+          <span>Healthcare</span><span class="sep">•</span>
+          <span>AI</span><span class="sep">•</span>
+          <span>Insurance</span><span class="sep">•</span>
+          <span>MedTech</span><span class="sep">•</span>
+          <span>Hospital Management</span><span class="sep">•</span>
+          <span>Public Health</span><span class="sep">•</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section id="problem" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">The Problem · Difficulty 9/10</span>
+          <h2>Hospitals store healthcare data.<br/>They can't <span class="gradient-text">reason</span> over it.</h2>
+          <p class="section-lead">
+            Over 5 billion medical records are generated annually, yet care is still slowed by systemic gaps —
+            and critical diseases are detected too late despite warning signals already living in the record.
+          </p>
+        </div>
+        <div class="prob-grid">
+          <div class="prob-card reveal"><span class="prob-ico">⏱</span><h3>Delayed diagnosis</h3><p>Sepsis, heart failure, diabetic complications and cancer detected too late.</p></div>
+          <div class="prob-card reveal"><span class="prob-ico">🩺</span><h3>Doctor shortages</h3><p>Overloaded clinicians stretched across too many patients.</p></div>
+          <div class="prob-card reveal"><span class="prob-ico">⚠</span><h3>Diagnostic errors</h3><p>Missed signals across siloed systems and reports.</p></div>
+          <div class="prob-card reveal"><span class="prob-ico">🔁</span><h3>Patient readmissions</h3><p>Avoidable returns driving cost and poor outcomes.</p></div>
+          <div class="prob-card reveal"><span class="prob-ico">📄</span><h3>Administrative overload</h3><p>~40% of physician time spent documenting, not treating.</p></div>
+          <div class="prob-card reveal"><span class="prob-ico">🧩</span><h3>Siloed systems</h3><p>EHRs store data but never connect or reason across it.</p></div>
+        </div>
+
+        <div class="fail-band reveal">
+          <h3>Why existing solutions fail</h3>
+          <div class="fail-grid">
+            <div><b>EHRs</b><p>Store data but don't reason over it.</p></div>
+            <div><b>Diagnostic AI</b><p>Solves only one narrow task.</p></div>
+            <div><b>Hospital software</b><p>Focuses on administration, not care.</p></div>
+            <div><b>Decision support</b><p>Lacks explainability and trust.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AGENTS / DEMO -->
+    <section id="agents" class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Multi-Agent Clinical System · LangGraph + LLM Orchestration</span>
+          <h2>A multidisciplinary board,<br/>orchestrated by <span class="gradient-text">AI</span></h2>
+          <p class="section-lead">Six specialized agents analyze the same patient from different angles, then a coordinator synthesizes a confidence-scored diagnosis with evidence.</p>
+        </div>
+
+        <div class="agents-grid">
+          <article class="agent-card reveal" data-color="sky">
+            <div class="agent-top"><span class="agent-ico">🧠</span><span class="agent-tag">Diagnostic</span></div>
+            <h3>Diagnostic Agent</h3><p>Analyzes symptoms and full medical history to form candidate hypotheses.</p>
+          </article>
+          <article class="agent-card reveal" data-color="violet">
+            <div class="agent-top"><span class="agent-ico">🧪</span><span class="agent-tag">Lab</span></div>
+            <h3>Lab Analysis Agent</h3><p>Interprets blood reports and pathology results, flagging abnormal markers.</p>
+          </article>
+          <article class="agent-card reveal" data-color="teal">
+            <div class="agent-top"><span class="agent-ico">🩻</span><span class="agent-tag">Imaging</span></div>
+            <h3>Radiology Agent</h3><p>Reads X-rays, CT and MRI with heatmaps highlighting regions of concern.</p>
+          </article>
+          <article class="agent-card reveal" data-color="amber">
+            <div class="agent-top"><span class="agent-ico">💊</span><span class="agent-tag">Pharmacology</span></div>
+            <h3>Drug Interaction Agent</h3><p>Detects medication conflicts and adverse effects, suggests alternatives.</p>
+          </article>
+          <article class="agent-card reveal" data-color="rose">
+            <div class="agent-top"><span class="agent-ico">📈</span><span class="agent-tag">Risk</span></div>
+            <h3>Risk Prediction Agent</h3><p>Forecasts disease progression and readmission probability over time.</p>
+          </article>
+          <article class="agent-card reveal coordinator" data-color="green">
+            <div class="agent-top"><span class="agent-ico">🧭</span><span class="agent-tag">Coordinator</span></div>
+            <h3>Clinical Coordinator</h3><p>Synthesizes all agents into a single confidence-scored recommendation.</p>
+          </article>
+        </div>
+
+        <!-- Live debate -->
+        <div id="demo" class="debate reveal">
+          <div class="debate-head">
+            <h3>Live: the agents debate a case</h3>
+            <button id="replayBtn" class="btn btn-ghost btn-sm">▶ Replay</button>
+          </div>
+          <div class="debate-stream" id="debateStream" aria-live="polite"></div>
+          <div class="debate-verdict" id="debateVerdict">
+            <div class="verdict-ring"><svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-fg" id="ring" cx="60" cy="60" r="52"/></svg><span id="ringPct">0%</span></div>
+            <div>
+              <span class="verdict-label">Coordinator verdict</span>
+              <h4>Congestive Heart Failure</h4>
+              <p>Recommend echocardiogram. Reasoning and per-agent evidence attached.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNIQUE INNOVATION FACTOR -->
+    <section id="innovation" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Unique Innovation Factor</span>
+          <h2>A <span class="gradient-text">digital clinical twin</span> for every patient</h2>
+          <p class="section-lead">Unlike traditional healthcare AI that produces isolated predictions, MediTwin's agents debate diagnosis pathways exactly as specialists would during a multidisciplinary board meeting — providing both reasoning and evidence.</p>
+        </div>
+        <div class="innov-grid">
+          <div class="innov-side reveal">
+            <div class="innov-point"><span>🧬</span><div><h4>Digital Clinical Twin</h4><p>A living, virtual representation of each patient's evolving health state.</p></div></div>
+            <div class="innov-point"><span>🗣️</span><div><h4>Agents that debate</h4><p>Specialist agents challenge and refine each other instead of voting blindly.</p></div></div>
+            <div class="innov-point"><span>📑</span><div><h4>Reasoning + evidence</h4><p>Every conclusion ships with the "why", not just a score.</p></div></div>
+          </div>
+          <div class="board reveal">
+            <div class="board-msg sky"><b>Radiology Agent</b><p>"Possible pneumonia."</p></div>
+            <div class="board-msg violet"><b>Lab Agent</b><p>"Inflammation markers do not support severe infection."</p></div>
+            <div class="board-msg rose"><b>Risk Agent</b><p>"High probability of heart failure."</p></div>
+            <div class="board-msg green"><b>Coordinator Agent</b><p>"Most likely diagnosis: Congestive Heart Failure (87% confidence). Recommend echocardiogram."</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLATFORM CAPABILITIES -->
+    <section id="platform" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">The Platform</span>
+          <h2>Vision, prediction, language &amp; <span class="gradient-text">explainability</span></h2>
+          <p class="section-lead">One coordinated system combining computer vision, predictive analytics, medical NLP and trust-first explainable AI.</p>
+        </div>
+
+        <div class="cap-grid">
+          <div class="cap-card reveal">
+            <div class="cap-h"><span class="cap-ico">👁</span><h3>Medical Computer Vision</h3></div>
+            <p class="cap-models">Vision Transformers · DenseNet · EfficientNet</p>
+            <ul>
+              <li>Chest X-ray abnormality detection</li>
+              <li>Skin cancer screening</li>
+              <li>Diabetic retinopathy detection</li>
+              <li>Fracture identification</li>
+            </ul>
+          </div>
+          <div class="cap-card reveal">
+            <div class="cap-h"><span class="cap-ico">🔮</span><h3>Predictive Healthcare Engine</h3></div>
+            <p class="cap-models">XGBoost · LightGBM · Temporal Transformers</p>
+            <ul>
+              <li>ICU admission &amp; escalation risk</li>
+              <li>Readmission risk</li>
+              <li>Sepsis onset prediction</li>
+              <li>Cardiac events &amp; diabetes complications</li>
+            </ul>
+          </div>
+          <div class="cap-card reveal">
+            <div class="cap-h"><span class="cap-ico">📝</span><h3>Medical NLP</h3></div>
+            <p class="cap-models">Llama 3 · MedGemma · BioBERT</p>
+            <ul>
+              <li>Clinical summarization</li>
+              <li>ICD code generation</li>
+              <li>Automated report drafting</li>
+              <li>Notes, prescriptions &amp; discharge summaries</li>
+            </ul>
+          </div>
+          <div class="cap-card reveal">
+            <div class="cap-h"><span class="cap-ico">🔍</span><h3>Explainable AI</h3></div>
+            <p class="cap-models">SHAP · Feature attribution · Reasoning traces</p>
+            <ul>
+              <li>Why a prediction was made</li>
+              <li>Driving risk factors</li>
+              <li>Confidence scores</li>
+              <li>Trust-first design for adoption</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MVP -->
+    <section id="mvp" class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">MVP · 10–12 Weeks</span>
+          <h2>Shippable from day one</h2>
+        </div>
+        <div class="mvp-grid">
+          <div class="mvp-card reveal"><span class="mvp-num">01</span><h3>Doctor Copilot</h3><p>Upload a patient report — the system summarizes findings, suggests probable diagnoses and highlights abnormalities.</p></div>
+          <div class="mvp-card reveal"><span class="mvp-num">02</span><h3>Medical Imaging</h3><p>Upload an X-ray and receive a detection result, heatmap visualization and confidence score.</p></div>
+          <div class="mvp-card reveal"><span class="mvp-num">03</span><h3>Risk Prediction</h3><p>Predict readmission and ICU escalation directly from the patient record.</p></div>
+          <div class="mvp-card reveal"><span class="mvp-num">04</span><h3>Clinical Chat Assistant</h3><p>Ask "Why is this patient high risk?" and get a natural-language explanation.</p></div>
+        </div>
+
+        <div class="adv-band reveal">
+          <h3>Advanced features <span>(final-year excellence)</span></h3>
+          <div class="adv-grid">
+            <span>Patient Digital Twin</span>
+            <span>Autonomous Clinical Monitoring</span>
+            <span>Real-Time ICU Intelligence</span>
+            <span>Hospital Operations Agent</span>
+            <span>Insurance Fraud Detection</span>
+            <span>Clinical Trial Matching</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section id="journey" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Complete User Journey</span>
+          <h2>From admission to <span class="gradient-text">executive dashboard</span></h2>
+        </div>
+        <div class="timeline">
+          <div class="tl-item reveal"><span class="tl-dot">1</span><div class="tl-body"><h3>Patient Admission</h3><p>History, previous diagnoses and medication records are imported automatically.</p></div></div>
+          <div class="tl-item reveal"><span class="tl-dot">2</span><div class="tl-body"><h3>Clinical Assessment</h3><p>Doctor uploads blood reports and scans; MediTwin returns a summary, risk profile and next steps.</p></div></div>
+          <div class="tl-item reveal"><span class="tl-dot">3</span><div class="tl-body"><h3>Early Warning Detection</h3><p>"High sepsis risk in next 8 hours." Alert routed to the doctor.</p></div></div>
+          <div class="tl-item reveal"><span class="tl-dot">4</span><div class="tl-body"><h3>Treatment Optimization</h3><p>Drug Interaction Agent flags a dangerous combination and offers safer alternatives.</p></div></div>
+          <div class="tl-item reveal"><span class="tl-dot">5</span><div class="tl-body"><h3>Discharge Intelligence</h3><p>Auto-generated discharge summary, follow-up plan and readmission risk assessment.</p></div></div>
+          <div class="tl-item reveal"><span class="tl-dot">6</span><div class="tl-body"><h3>Executive Dashboard</h3><p>Bed utilization, readmission rates, department performance and revenue impact.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH STACK + ARCHITECTURE -->
+    <section id="stack" class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Tech Stack &amp; Architecture</span>
+          <h2>Enterprise-scale by design</h2>
+        </div>
+        <div class="stack-grid">
+          <div class="stack-col reveal"><h3>Frontend</h3><ul><li>Next.js Hospital Dashboard</li><li>React Native Doctor App</li><li>Patient Portal</li></ul></div>
+          <div class="stack-col reveal"><h3>Backend</h3><ul><li>FastAPI</li><li>Node.js</li><li>GraphQL APIs</li><li>HL7 / FHIR Integration</li></ul></div>
+          <div class="stack-col reveal"><h3>AI / ML</h3><ul><li>Llama 3 · MedGemma · BioBERT</li><li>LangGraph</li><li>PyTorch · TensorFlow</li><li>OpenCV</li></ul></div>
+          <div class="stack-col reveal"><h3>Data Infrastructure</h3><ul><li>PostgreSQL · MongoDB</li><li>Pinecone Vector DB</li><li>Redis</li><li>Kafka</li></ul></div>
+          <div class="stack-col reveal"><h3>Cloud</h3><ul><li>AWS HealthLake</li><li>Azure Health Services</li><li>Kubernetes</li><li>Docker</li></ul></div>
+          <div class="stack-col reveal"><h3>Microservices</h3><ul><li>Patient · Clinical Intelligence</li><li>Radiology · Lab Analytics</li><li>Risk · Doctor Copilot</li><li>Notification · Audit &amp; Compliance</li></ul></div>
+        </div>
+
+        <div class="arch-band reveal">
+          <h3>Microservices &amp; data services</h3>
+          <p class="arch-sub">Eight independent services coordinated by the Clinical Intelligence layer.</p>
+          <div class="svc-grid">
+            <div class="svc"><span class="svc-ico">🧑‍⚕️</span><b>Patient Service</b></div>
+            <div class="svc"><span class="svc-ico">🧭</span><b>Clinical Intelligence Service</b></div>
+            <div class="svc"><span class="svc-ico">🩻</span><b>Radiology Service</b></div>
+            <div class="svc"><span class="svc-ico">🧪</span><b>Lab Analytics Service</b></div>
+            <div class="svc"><span class="svc-ico">📈</span><b>Risk Prediction Service</b></div>
+            <div class="svc"><span class="svc-ico">📝</span><b>Doctor Copilot Service</b></div>
+            <div class="svc"><span class="svc-ico">🔔</span><b>Notification Service</b></div>
+            <div class="svc"><span class="svc-ico">🛡️</span><b>Audit &amp; Compliance Service</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USERS + BUSINESS -->
+    <section class="section">
+      <div class="container two-col">
+        <div class="reveal">
+          <span class="eyebrow">Target Users</span>
+          <h2 class="mb">Built for the whole <span class="gradient-text">care ecosystem</span></h2>
+          <div class="users-block">
+            <h4>Primary</h4>
+            <div class="chips"><span>Hospitals</span><span>Multi-specialty clinics</span><span>Diagnostic chains</span><span>Telemedicine</span></div>
+            <h4>Secondary</h4>
+            <div class="chips"><span>Health insurers</span><span>Government health depts</span><span>Pharma research</span></div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="eyebrow">Business Model</span>
+          <h2 class="mb">Revenue from <span class="gradient-text">day one</span></h2>
+          <div class="biz-grid">
+            <div class="biz-card"><b>SaaS</b><p>Recurring platform subscription for hospitals &amp; clinics.</p></div>
+            <div class="biz-card"><b>₹20–100</b><p>Per patient analysis.</p></div>
+            <div class="biz-card"><b>₹50L–₹5Cr</b><p>Annual enterprise / hospital licensing.</p></div>
+            <div class="biz-card"><b>High moat</b><p>Multi-agent + compliance barrier to entry.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUTURE SCOPE -->
+    <section id="future" class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Future Scope</span>
+          <h2>Where MediTwin <span class="gradient-text">goes next</span></h2>
+        </div>
+        <div class="future-grid">
+          <div class="future-card reveal"><span class="future-ico">🤖</span><h3>AI-assisted robotic surgery support</h3><p>Real-time intra-operative guidance and decision support.</p></div>
+          <div class="future-card reveal"><span class="future-ico">🧬</span><h3>Genomic medicine integration</h3><p>Fuse genomic profiles with clinical signals for precision care.</p></div>
+          <div class="future-card reveal"><span class="future-ico">🧪</span><h3>Personalized treatment simulations</h3><p>Simulate therapy outcomes on the patient's digital twin.</p></div>
+          <div class="future-card reveal"><span class="future-ico">🚑</span><h3>Smart ambulances with edge AI</h3><p>On-device triage and prediction before the patient arrives.</p></div>
+          <div class="future-card reveal"><span class="future-ico">🌐</span><h3>National health intelligence platform</h3><p>Population-scale early-warning and resource planning.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY RECRUITERS / WHY US -->
+    <section id="recruiters" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Why Recruiters Will Notice</span>
+          <h2>A flagship-grade <span class="gradient-text">engineering portfolio</span></h2>
+        </div>
+        <div class="recruit-grid">
+          <div class="recruit-card reveal"><span>🧩</span>Multi-agent AI architecture</div>
+          <div class="recruit-card reveal"><span>🏥</span>Healthcare-grade AI system</div>
+          <div class="recruit-card reveal"><span>👁️</span>Computer Vision + NLP + Predictive Analytics</div>
+          <div class="recruit-card reveal"><span>🔍</span>Explainable AI implementation</div>
+          <div class="recruit-card reveal"><span>🏗️</span>Enterprise-scale architecture</div>
+          <div class="recruit-card reveal"><span>🌍</span>Real-world social impact</div>
+          <div class="recruit-card reveal"><span>🛡️</span>High barrier to entry</div>
+          <div class="recruit-card reveal"><span>🚀</span>Startup &amp; YC potential</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PITCH -->
+    <section id="pitch" class="section section-pitch">
+      <div class="container">
+        <div class="pitch-card reveal">
+          <span class="eyebrow center">YC Pitch</span>
+          <blockquote>
+            "We are building the operating system for clinical intelligence. Hospitals today store healthcare
+            data but cannot reason over it. MediTwin creates a digital AI twin for every patient and deploys
+            multiple specialized AI agents that collaborate like a team of doctors. Our platform predicts
+            disease risk, analyzes scans, interprets reports, prevents medical errors, and reduces hospital
+            costs — all while remaining explainable and compliant."
+          </blockquote>
+          <p class="pitch-tag">Healthcare has Electronic Health Records.<br/><span class="gradient-text">We are building Electronic Clinical Intelligence.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="cta-card reveal">
+          <div class="cta-copy">
+            <h2>Bring clinical intelligence to your hospital</h2>
+            <p>Request platform access or a guided walkthrough of the multi-agent system, imaging pipeline and executive dashboard.</p>
+          </div>
+          <form class="cta-form" id="ctaForm">
+            <div class="row">
+              <input type="text" name="name" placeholder="Full name" required />
+              <input type="email" name="email" placeholder="Work email" required />
+            </div>
+            <input type="text" name="org" placeholder="Hospital / Organization" />
+            <button type="submit" class="btn btn-primary btn-lg">Request Access</button>
+            <p class="form-note" id="formNote" hidden>Thanks — we'll be in touch shortly.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-text">MediTwin<span class="brand-ai">AI</span></span>
+        <p>Multi-Agent Clinical Intelligence Platform for early disease detection and hospital operations.</p>
+      </div>
+      <div class="footer-links">
+        <div><h5>Platform</h5><a href="#agents">Agents</a><a href="#platform">Capabilities</a><a href="#mvp">MVP</a></div>
+        <div><h5>Company</h5><a href="#problem">Problem</a><a href="#pitch">Pitch</a><a href="#contact">Contact</a></div>
+        <div><h5>Compliance</h5><a href="#">HL7 / FHIR</a><a href="#">Explainable AI</a><a href="#">Audit Trail</a></div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> MediTwin AI · Concept platform.</span>
+      <span>Built for healthcare-grade impact.</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
