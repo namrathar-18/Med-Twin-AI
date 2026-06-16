@@ -1,0 +1,13 @@
+- [ ] Create backend (FastAPI) with multi-agent orchestration stubs
+- [ ] Add database layer (SQLite via SQLAlchemy) with models for patient + evidence + verdict
+- [ ] Add FHIR/HL7 integration stubs (parsing/mapping placeholders)
+- [ ] Add GraphQL layer (Ariadne) stubs or REST equivalents
+- [ ] Add microservice-style modules (patient, clinical intelligence, radiology, lab, risk, copilot, notification, audit/compliance) as internal packages
+- [ ] Add API endpoints for:
+  - patient intake
+  - upload (mock)
+  - run agents debate (mock LangGraph-like sequence)
+  - return verdict + per-agent evidence
+- [ ] Wire marketing frontend to backend for the “Live debate” and CTA form (fetch calls)
+- [ ] Add run scripts / docs (README update with local dev commands)
+- [ ] Commit + push to GitHub
